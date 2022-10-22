@@ -59,8 +59,8 @@ def shift_geom(shift, gdataframe):
 
     return gdf
 
-# Проекция координат пожаров за 2012 год на карту России
-small_data = data.loc[data.year == 2012]
+# Проекция координат пожаров за май 2012 года на карту России
+small_data = data.loc[(data.year == 2012) & (data.month == 5)]
 gdf = gpd.GeoDataFrame(
     small_data,
     geometry=gpd.points_from_xy(pd.to_numeric(small_data['lon'], errors='coerce').fillna(0, downcast='infer'),
